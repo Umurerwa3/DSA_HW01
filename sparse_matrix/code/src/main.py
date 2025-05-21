@@ -1,8 +1,8 @@
-class SparseMatrix:
-    def __init__(self, num_rows, num_cols):
+class SparseMatrices:
+    def __init__(self, rows_num, cols_num):
         # Initialize matrix with given dimensions
-        self.rows = num_rows
-        self.cols = num_cols
+        self.rows = rows_num
+        self.cols = cols_num
         self.data = {}  # Store non-zero values only using nested dictionary
 
     @staticmethod
@@ -15,7 +15,7 @@ class SparseMatrix:
             # Read number of rows and columns from the first two lines
             rows = int(lines[0][5:])
             cols = int(lines[1][5:])
-            matrix = SparseMatrix(rows, cols)
+            matrix = SparseMatrices(rows, cols)
 
             # Read each non-zero entry and add it to the matrix
             for line in lines[2:]:
@@ -53,7 +53,7 @@ class SparseMatrix:
         if self.rows != other.rows or self.cols != other.cols:
             raise ValueError("Matrix dimensions must match for addition")
 
-        result = SparseMatrix(self.rows, self.cols)
+        result = SparseMatrices(self.rows, self.cols)
 
         # Add elements from the first matrix
         for row in self.data:
@@ -73,7 +73,7 @@ class SparseMatrix:
         if self.rows != other.rows or self.cols != other.cols:
             raise ValueError("Matrix dimensions must match for subtraction")
 
-        result = SparseMatrix(self.rows, self.cols)
+        result = SparseMatrices(self.rows, self.cols)
 
         # Copy elements from the first matrix
         for row in self.data:
@@ -93,7 +93,7 @@ class SparseMatrix:
         if self.cols != other.rows:
             raise ValueError("Invalid dimensions for multiplication")
 
-        result = SparseMatrix(self.rows, other.cols)
+        result = SparseMatrices(self.rows, other.cols)
 
         # Multiply non-zero elements only
         for row1 in self.data:
@@ -133,8 +133,8 @@ def main():
 
     try:
         # Load matrices from the given files
-        matrix1 = SparseMatrix.from_file(file1)
-        matrix2 = SparseMatrix.from_file(file2)
+        matrix1 = SparseMatrices.from_file(file1)
+        matrix2 = SparseMatrices.from_file(file2)
 
         # Perform the specified operation
         if operation == "add":
@@ -149,7 +149,7 @@ def main():
         # Write the result to the output file
         with open(output_file, "w") as out_file:
             out_file.write(str(result))
-        print(f"Result written to {output_file}")
+        print(f"Result forwaded to {output_file}")
 
     except Exception as e:
         print("Error:", e)
