@@ -1,4 +1,4 @@
-# DSA HW01 - OPERATIONS WITH SPARSE MATRIX
+# DSA HW01 - SPARSE MATRIX OPERATION
 
 This is a Python Project that Load two sparse matrices from an input file and can perform addition, subtraction, and multiplication on the matrices.
 
